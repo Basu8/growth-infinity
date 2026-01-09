@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.growthinfinity.com
+
+# Sitemaps
+Sitemap: https://www.growthinfinity.com/sitemap.xml

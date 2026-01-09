@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "react-phone-number-input/style.css";
+
+/* Shared Input Style */
+.input-field {
+  width: 100%;
+  padding: 14px 14px 14px 44px;
+  border-radius: 0.75rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Input Icons */
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+/* Phone Input Custom */
+.custom-phone {
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 6px;
+}
+
+.custom-phone input {
+  border: none;
+  padding: 10px;
+}
+
+.custom-phone input:focus {
+  outline: none;
+}
