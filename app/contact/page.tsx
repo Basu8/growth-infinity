@@ -13,7 +13,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { db } from "../utils/firebase";
+import { db } from "../firebase/firebase";
 
 export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
