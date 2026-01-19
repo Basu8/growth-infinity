@@ -17,23 +17,6 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans bg-white text-gray-900 antialiased">
-          <Navbar />
-          {children}
-        <CookieConsent />
-      </body>
-    </html>
-  );
-}
-
-
 export const metadata: Metadata = {
   title: "Growth Infinity | Digital Marketing Services",
   description:
@@ -44,6 +27,12 @@ export const metadata: Metadata = {
     "google ads management",
     "social media marketing",
   ],
+
+ icons: {
+    icon: "/favicon.ico",
+    //apple: "/apple-touch-icon.png",
+  },
+
   openGraph: {
     title: "Growth Infinity",
     description: "Grow your business with data-driven digital marketing.",
@@ -60,3 +49,19 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className="font-sans bg-white text-gray-900 antialiased">
+          <Navbar />
+          {children}
+        <CookieConsent />
+      </body>
+    </html>
+  );
+}

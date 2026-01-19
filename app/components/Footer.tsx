@@ -41,7 +41,7 @@ export default function Footer() {
           <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
           
           <h3 className="text-white font-semibold mt-6 mb-3">Contact</h3>
-          <p className="text-sm opacity-80 mb-2">Email: digimarkltd4@gmail.com</p>
+          <p className="text-sm opacity-80 mb-2">Email: growthinfinity@zohomail.com</p>
           <div className="flex space-x-4 mt-4">
             <a href="#" className="hover:text-white transition">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
