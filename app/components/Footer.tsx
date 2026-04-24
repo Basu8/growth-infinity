@@ -38,10 +38,10 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-3">Legal</h3>
             <Link href="/privacy-policy" className="hover:text-white transition block mb-3">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
+          {/* <Link href="/terms" className="hover:text-white transition">Terms of Service</Link> */}
           
           <h3 className="text-white font-semibold mt-6 mb-3">Contact</h3>
-          <p className="text-sm opacity-80 mb-2">Email: growthinfinity@zohomail.com</p>
+          <p className="text-sm opacity-80 mb-2">Email: growthinfinty@gmail.com</p>
           <div className="flex space-x-4 mt-4">
             <a href="#" className="hover:text-white transition">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -75,12 +75,12 @@ export default function Footer() {
             >
               Privacy Policy
             </Link>
-            <Link 
+            {/* <Link 
               href="/terms" 
               className="text-sm hover:text-white transition opacity-80 hover:opacity-100"
             >
               Terms of Service
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

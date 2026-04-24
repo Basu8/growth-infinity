@@ -1,151 +1,161 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Footer from '../../components/Footer'; // Updated import path
+import { notFound } from 'next/navigation';
+import Footer from '../../components/Footer';
 
-export const metadata = {
-  title: '5 Useful Tips for Social Media Marketing | DigiMark',
-  description: 'Expert insights from DigiMark on effective social media marketing strategies',
+const post = {
+  slug: 'how-ai-is-changing-digital-marketing-in-2026',
+  title: 'How AI is Changing Digital Marketing in 2026',
+  description:
+    'Expert insights on how AI is transforming content creation, personalization, SEO, and automation.',
+  image: '/ai-in-digital-marketing.jpeg',
 };
 
-export default function BlogPost() {
+export const metadata = {
+  title: `${post.title} | DigiMark`,
+  description: post.description,
+};
+
+export function generateStaticParams() {
+  return [{ slug: post.slug }];
+}
+
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
+  if (slug !== post.slug) {
+    notFound();
+  }
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <article className="max-w-4xl mx-auto px-4 py-12 flex-grow">
-        {/* Featured Image with added top padding */}
-        <div className="mb-8 rounded-xl overflow-hidden shadow-lg mt-8">
-          <Image
-            src="/digimarket.jpg"
-            alt="Social Media Marketing Strategy"
-            width={1200}
-            height={630}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
+    <div className="min-h-screen flex flex-col bg-white">
+      <main className="flex-grow">
+        <article className="max-w-4xl mx-auto px-4 py-12 pt-24">
+          <div className="mb-6">
+            <Link href="/blog" className="text-blue-600 hover:underline">
+              ← Back to Blog
+            </Link>
+          </div>
 
-        {/* Title */}
-        <h1 className="text-4xl font-bold mb-6 text-gray-900">
-          5 Useful Tips for Social Media Marketing: Expert Insights from DigiMark
-        </h1>
+          <div className="mb-8 rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={1200}
+              height={630}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
 
-        {/* Introduction */}
-        <div className="prose prose-lg mb-12">
-          <p>
-            In today&apos;s digital world, social media has become an essential tool for businesses to engage with their audience, 
-            build brand awareness, and drive sales. Whether you&apos;re a startup or an established business, mastering social 
-            media marketing can give you the edge you need to stay competitive.
-          </p>
-        </div>
+          <div className="flex items-center gap-3 mb-4 text-sm text-gray-500">
+            <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+              Digital Marketing
+            </span>
+            {/* <span>March 2026</span> */}
+          </div>
 
-        {/* Tip 1 */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-blue-600">1. Set Clear, Measurable Goals</h2>
-          <div className="prose">
+          <h1 className="text-4xl font-bold mb-6 text-gray-900">{post.title}</h1>
+
+          <div className="prose prose-lg max-w-none text-gray-700 mb-10">
             <p>
-              Before diving into social media marketing, it&apos;s crucial to have a clear vision of what you want to achieve. 
-              Whether it&apos;s increasing brand awareness, generating leads, or driving traffic to your website, having defined 
-              objectives helps guide your efforts and measure success.
+              AI is no longer just a support tool in marketing. In 2026, it is helping teams
+              create content faster, understand audiences better, and make smarter decisions
+              across every channel.
             </p>
-            <div className="bg-blue-50 p-4 rounded-lg my-4 border-l-4 border-blue-500">
-              <p className="font-semibold text-blue-700">Tip:</p>
-              <p>
-                Use specific, measurable, attainable, relevant, and time-bound (SMART) goals for your social media campaigns. 
-                For example, &quot;Increase Instagram followers by 15% in the next three months.&quot;
-              </p>
-            </div>
             <p>
-              At DigiMark, we work with businesses to create customized social media 
-              strategies with clear KPIs that align with their overall marketing goals.
+              From personalized campaigns to automated workflows, businesses that use AI well
+              are improving efficiency, targeting, and customer experience at the same time.
             </p>
           </div>
-        </section>
 
-        {/* Tip 2 */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-blue-600">2. Understand Your Target Audience</h2>
-          <div className="prose">
-            <p>
-              One of the most important elements of social media marketing is knowing who your audience is. Different platforms 
-              attract different demographics, so understanding your target market is key to creating content that resonates with them.
-            </p>
-            <div className="bg-blue-50 p-4 rounded-lg my-4 border-l-4 border-blue-500">
-              <p className="font-semibold text-blue-700">Tip:</p>
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              1. AI is making personalization smarter
+            </h2>
+            <div className="prose max-w-none text-gray-700">
               <p>
-                Research your audience&apos;s preferences, behaviors, and interests using tools like social media analytics or audience insights.
+                AI helps brands analyze user behavior and deliver content that matches interests,
+                buying patterns, and intent. That means emails, ads, landing pages, and product
+                recommendations can feel more relevant to each user.
               </p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Tip 3 */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-blue-600">3. Create Engaging, High-Quality Content</h2>
-          <div className="prose">
-            <p>
-              Content is king in the world of social media marketing. High-quality, engaging content not only attracts attention but also keeps your audience coming back for more.
-            </p>
-            <div className="bg-blue-50 p-4 rounded-lg my-4 border-l-4 border-blue-500">
-              <p className="font-semibold text-blue-700">Tip:</p>
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              2. Content creation is becoming faster
+            </h2>
+            <div className="prose max-w-none text-gray-700">
               <p>
-                Vary your content types to keep things fresh—use a mix of blog posts, infographics, behind-the-scenes content, and user-generated content.
+                Marketers are using AI to brainstorm topics, draft captions, generate outlines,
+                and repurpose content across platforms. This saves time and helps teams publish
+                more consistently.
               </p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Tip 4 */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-blue-600">4. Consistency is Key</h2>
-          <div className="prose">
-            <p>
-              When it comes to social media marketing, consistency is essential. Posting regularly helps keep your brand top-of-mind for your audience.
-            </p>
-            <div className="bg-blue-50 p-4 rounded-lg my-4 border-l-4 border-blue-500">
-              <p className="font-semibold text-blue-700">Tip:</p>
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              3. Chatbots and automation improve customer support
+            </h2>
+            <div className="prose max-w-none text-gray-700">
               <p>
-                Create a content calendar to plan and schedule posts in advance.
+                AI-powered chatbots can answer common questions instantly, guide users, and help
+                teams stay available around the clock. Automation also reduces repetitive manual
+                work in email, CRM, and campaign management.
               </p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Tip 5 */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-blue-600">5. Analyze and Adapt Your Strategy</h2>
-          <div className="prose">
-            <p>
-              A successful social media marketing strategy is not static. It&apos;s important to continually monitor your performance and adapt your strategy.
-            </p>
-            <div className="bg-blue-50 p-4 rounded-lg my-4 border-l-4 border-blue-500">
-              <p className="font-semibold text-blue-700">Tip:</p>
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              4. AI is changing SEO and ad optimization
+            </h2>
+            <div className="prose max-w-none text-gray-700">
               <p>
-                Use tools like Google Analytics and Facebook Insights to track your campaigns.
+                Search and paid media are becoming more data-driven. AI can help with keyword
+                research, audience targeting, bid adjustments, and performance analysis, making
+                campaigns easier to optimize at scale.
               </p>
             </div>
+          </section>
+
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              5. Better analytics leads to better decisions
+            </h2>
+            <div className="prose max-w-none text-gray-700">
+              <p>
+                AI tools can process large amounts of marketing data quickly and highlight what is
+                working, what is not, and where to improve next. That helps teams move faster with
+                more confidence.
+              </p>
+            </div>
+          </section>
+
+          <section className="bg-gray-50 p-6 rounded-2xl mt-10">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              Why AI matters for digital marketing
+            </h2>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Faster content creation and campaign execution</li>
+              <li>More personalized customer experiences</li>
+              <li>Smarter SEO and advertising decisions</li>
+              <li>Better efficiency for marketing teams</li>
+            </ul>
+          </section>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/contact"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors duration-300"
+            >
+              Contact DigiMark Today
+            </Link>
           </div>
-        </section>
-
-        {/* Why Choose DigiMark */}
-        <section className="bg-gray-50 p-6 rounded-xl mt-8">
-          <h2 className="text-2xl font-bold mb-4">Why Choose DigiMark as Your Social Media Marketing Agency?</h2>
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Expertise and Experience:</strong> Our team has years of experience helping businesses thrive</li>
-            <li><strong>Tailored Strategies:</strong> Customized approaches for each business</li>
-            <li><strong>Proven Track Record:</strong> Demonstrated success with numerous clients</li>
-            <li><strong>Comprehensive Approach:</strong> End-to-end solutions from strategy to execution</li>
-          </ul>
-        </section>
-
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <Link 
-            href="/contact" 
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors duration-300"
-          >
-            Contact DigiMark Today
-          </Link>
-        </div>
-      </article>
+        </article>
+      </main>
 
       <Footer />
     </div>
